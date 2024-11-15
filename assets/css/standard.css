@@ -1,0 +1,36 @@
+body{
+    margin: 0;
+}
+
+.d_flex{
+    display: flex;
+}
+
+.a_center{
+    align-items: center;
+}
+
+.j_center{
+    justify-content: center;
+}
+
+.j_space{
+    justify-content: space-between;
+}
+
+.cursor{
+    cursor: pointer;
+}
+
+.f_collum{
+    flex-direction: column;
+}
+
+.f_wrap{
+    flex-wrap: wrap;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}

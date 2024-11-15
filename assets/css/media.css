@@ -1,0 +1,8 @@
+@media (max-width: 750px) {
+    #header {
+        flex-direction: column;
+    }
+    #header input {
+        width: 240px !important;
+    }
+}
