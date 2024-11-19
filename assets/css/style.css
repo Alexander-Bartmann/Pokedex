@@ -111,7 +111,7 @@
     width: 0%;
     height: 100%;
     background-color: #FFD700;
-    animation: fillBar 3s linear forwards;
+    animation: fillBar 6s linear forwards;
     border-radius: 5px;
 }
 

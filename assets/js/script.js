@@ -20,7 +20,7 @@ function loading() {
     setTimeout(() => {
         document.getElementById("loadingscreen").classList.add("d-none");
         document.getElementById("content").classList.remove("d-none");
-    }, 3000);
+    }, 6000);
 }
 
 async function renderAllPokemons() {
