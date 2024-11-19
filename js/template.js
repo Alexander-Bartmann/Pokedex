@@ -48,8 +48,8 @@ function getCardTemplate(pokemon, typeList, sprite, evoChainHTML) {
         <div class="selectedPokemon" onclick="closeDetail()" style="display: flex; gap: 16px; justify-content: space-around;">
             <div class="openCard">
                 <div class="card_details bg">
-                    <div>
-                        <div class="display">
+                    <div class="media">
+                        <div class="display headline_detail">
                             <h2>#${pokemon.id} - ${pokemon.name}</h2>
                             <button onclick="closeDetail()" class="pokemon_button">&#x2715;</button>
                         </div>

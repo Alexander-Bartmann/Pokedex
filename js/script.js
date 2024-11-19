@@ -76,31 +76,37 @@ function closeDetail() {
 function getStatsHTML(pokemon) {
     const maxStatValue = 255;
     const statNames = ["hp", "attack", "defense", "special-attack", "special-defense", "speed"];
-    let statsHTML = '<tr><td class="stat-table">';
+    let statsHTML = '<table>';
+    statsHTML += '<tr>';
     statsHTML += getStatNamesHTML(statNames);
-    statsHTML += getStatValuesHTML(pokemon, statNames, maxStatValue);    
-    statsHTML += '</td></tr>';
+    statsHTML += '</tr>';
+    statsHTML += '<tr>';
+    statsHTML += getStatValuesHTML(pokemon, statNames, maxStatValue);
+    statsHTML += '</tr>';    
+    statsHTML += '</table>';
     return statsHTML;
 }
 
 function getStatValuesHTML(pokemon, statNames, maxStatValue) {
-    let statValuesHTML = '<div class="stat-values">';
+    let statValuesHTML = '';
     for (let i = 0; i < statNames.length; i++) {
         const statValue = pokemon.stats[i].base_stat;
         const widthPercentage = Math.min((statValue / maxStatValue) * 100, 100);
-        statValuesHTML += getStatsValuesTemplate(widthPercentage, statValue);
+        statValuesHTML += `<td class="stat-value">
+            <div class="stat-bar">
+                <div class="stat-bar-inner" style="width: ${widthPercentage}%;">${statValue}</div>
+            </div>
+        </td>`;
     }
-    statValuesHTML += '</div>';
     return statValuesHTML;
 }
 
 function getStatNamesHTML(statNames) {
-    let statNamesHTML = '<div class="stat-names">';
+    let statNamesHTML = '';
     for (let i = 0; i < statNames.length; i++) {
         const statName = statNames[i];
-        statNamesHTML += `<div class="stat-name">${statName}</div>`;
+        statNamesHTML += `<td class="stat-name">${statName}</td>`;
     }
-    statNamesHTML += '</div>';
     return statNamesHTML;
 }
 

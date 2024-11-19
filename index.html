@@ -8,19 +8,20 @@
     <link rel="stylesheet" href="assets/css/standard.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="shortcut icon" href="img/poketball.png" type="image/x-icon">
-    <script src="assets/js/template.js"></script>
-    <script src="assets/js/script.js"></script>
-    <script src="assets/js/typesJSON.js"></script>
+    <script src="js/template.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/typesJSON.js"></script>
 </head>
 <body onload="init()">
-    <header id="header" class="d_flex a_center j_space bg_black headline"></header>
-    <div id="loadingscreen" class="loading-screen">
-        <img src="img/poketball.png" alt="Loading..." class="loading-img">
-        <div class="loading-bar-container">
-            <div class="loading-bar"></div>
-        </div>
-    </div>
+
     <div class="bg_img">
+        <header id="header" class="d_flex a_center j_space headline bg_black"></header>
+        <div id="loadingscreen" class="loading-screen">
+            <img src="img/poketball.png" alt="Loading..." class="loading-img">
+            <div class="loading-bar-container">
+                <div class="loading-bar"></div>
+            </div>
+        </div>
         <div id="content"></div>
         <div>
             <button id="loadMoreButton" onclick="loadMorePokemons()">Mehr Pokémon laden</button>

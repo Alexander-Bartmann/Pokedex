@@ -1,3 +1,9 @@
+#header, #content, #selectedPokemon {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
 .poketball{
     width: 90px;
 }
@@ -281,25 +287,23 @@
 }
 
 .stat-table {
-    display: flex;
-    justify-content: space-between;
     width: 100%;
+    border-collapse: collapse;
 }
 
-.stat-names {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-start;
-    width: 30%;
-    gap: 8px;
+.stat-names, .stat-values {
+    text-align: center;
 }
 
-.stat-values {
+.stat-names, .stat-values {
     display: flex;
     flex-direction: column;
-    width: 70%;
     gap: 8px;
+    justify-content: space-between;
+}
+
+.stat-name, .stat-value {
+    padding: 8px;
 }
 
 .stat-bar {
@@ -322,8 +326,6 @@
     color: white;
     font-weight: bold;
 }
-
-
 
 .evolution-image-container {
     display: inline-flex;

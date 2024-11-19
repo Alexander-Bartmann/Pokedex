@@ -21,3 +21,32 @@
         height: 60px !important;
     }
 }
+
+@media (max-width: 450px) {
+    .card_details{
+        width: 100% !important;
+        height: 100vh !important;
+    }
+
+    .media{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card_details_img img{
+        width: 100px !important;
+        height: auto !important;
+    }
+
+    .headline_detail{
+        gap: 16px;
+    }
+
+    .pokemon_types span{
+        display: flex;
+        flex-direction: column;
+        margin-top: 8px;
+    }
+}
+
