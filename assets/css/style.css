@@ -12,7 +12,7 @@
 
 #header input{
     height: 60px;
-    background-color: grey;
+    background-color: #ffff5f;
     width: 300px;
     border-radius: 8px;
     font-size: 36px;
@@ -24,19 +24,48 @@
     flex-wrap: wrap;
     gap: 32px;
     color: white;
-    
+    flex-grow: 1; /* Content nimmt den verbleibenden Raum ein */
+    overflow-y: auto; /* Wenn der Inhalt zu groß ist, wird er scrollen */
 }
 
-.pokemon_card{
-    background-color: #082029b5;
+
+.pokemon_card {
+    width: 200px;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgb(0 0 0);
+    margin: 15px;
+    text-transform: capitalize;
+    background-color: black;
+    cursor: pointer;
 }
 
-.pokemon_card_img{
-    width: 180px;
-    height: 180px;
+.pokemon_card_img {
+    overflow: hidden;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 16px;
+}
+
+.pokemon_card_img img{
+    width: 200px;
+    height: 200px;
+}
+
+.pokemon_types {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.pokemon_types span {
+    padding: 5px 10px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 7px -10px 8px 0px rgb(0 0 0 / 35%);
 }
 
 .bg_img {
@@ -44,6 +73,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    min-height: 90vh;
 }
 
 .loading-screen {
@@ -107,15 +137,158 @@
     display: none;
 }
 
-
-.grass{
-    background-color: #76CC54;
+#loadMoreButton {
+    background-color: #F7D02C; /* Gelbe Farbe */
+    color: white;
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    display: block;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.fire{
-    background-color: #EC4225;
+#loadMoreButton:hover {
+    background-color: #F7B02C; /* Helleres Gelb beim Hover */
 }
 
-.water{
-    background-color: #4F9AFF;
+.selectedPokemon {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.card_details{
+    width: 400px;
+    height: 85vh;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgb(0 0 0);
+    margin: 15px;
+    text-transform: capitalize;
+    background-color: black;
+    color: white;
+}
+
+.card_details_img{
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.card_details_img img{
+    width: 100%;
+}
+
+.openCard{
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.section {
+    margin-top: 10px;
+}
+
+.section tbody{
+    display: flex;
+    gap: 32px;
+}
+
+.section tr{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.section td{
+    margin-top: 8px;
+}
+
+.section table{
+    width: 100%;
+}
+
+.bg{
+    background-color: #082029;
+}
+
+.container_buttons{
+    display: flex; 
+    width: 100%;
+    margin: 0 0 16px 0;
+}
+
+.container_buttons button {
+    width: 100%;
+    background-color: #114758;
+    color: white;
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.container_buttons button:hover {
+    background-color: #145a6d;
+    border-bottom: 3px solid #B65852;
+}
+
+.stat-bar {
+    width: 100%; /* Der Balken füllt nun die gesamte Breite der Zelle */
+    background-color: #e0e0e0; /* Heller Hintergrund für den Balken */
+    border-radius: 5px; /* Runde Ecken für den Balken */
+    height: 20px; /* Höhe des Balkens */
+    position: relative;
+}
+
+.stat-bar-inner {
+    background-color: #B65852; /* Farbe des Balkens */
+    height: 100%; /* Der Balken füllt die ganze Höhe des Containers */
+    width: 0%; /* Initial auf 0, wird durch JavaScript angepasst */
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-end; /* Text nach rechts ausrichten */
+    align-items: center;
+    padding-right: 5px; /* Abstand zum rechten Rand */
+    color: white;
+    font-weight: bold;
+}
+
+.evolution-image-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.evolution-image {
+    width: 90px;  /* Festgelegte Bildgröße */
+    height: 90px; /* Festgelegte Bildgröße */
+    object-fit: contain;
+}
+
+.arrow {
+    font-size: 32px;
+    color: #ffffff;
 }

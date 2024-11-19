@@ -6,3 +6,18 @@
         width: 240px !important;
     }
 }
+
+@media (max-width: 480px) {
+    .arrow{
+        font-size: 16px !important;
+    }
+
+    .evolution-image-container{
+        gap: 0 !important;
+    }
+
+    .evolution-image{
+        width: 60px !important;
+        height: 60px !important;
+    }
+}
