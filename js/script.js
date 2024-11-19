@@ -49,10 +49,14 @@ function getTypeColors(pokemonJson) {
 }
 
 async function loadMorePokemons() {
+    const loadMoreButton = document.getElementById('loadMoreButton');
+    loadMoreButton.disabled = true;
     offset += limit;
     baseURL = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
     await renderAllPokemons();
+    loadMoreButton.disabled = false;
 }
+
 
 async function renderDetailCard(pokemon) {
     const detail = document.getElementById('selectedPokemon');
