@@ -69,7 +69,7 @@
 }
 
 .bg_img {
-    background-image: url(/img/poketball_BG.jpg);
+    
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -256,22 +256,22 @@
 }
 
 .stat-bar {
-    width: 100%; /* Der Balken füllt nun die gesamte Breite der Zelle */
-    background-color: #e0e0e0; /* Heller Hintergrund für den Balken */
-    border-radius: 5px; /* Runde Ecken für den Balken */
-    height: 20px; /* Höhe des Balkens */
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    height: 20px;
     position: relative;
 }
 
 .stat-bar-inner {
-    background-color: #B65852; /* Farbe des Balkens */
-    height: 100%; /* Der Balken füllt die ganze Höhe des Containers */
-    width: 0%; /* Initial auf 0, wird durch JavaScript angepasst */
+    background-color: #B65852;
+    height: 100%;
+    width: 0%;
     border-radius: 5px;
     display: flex;
-    justify-content: flex-end; /* Text nach rechts ausrichten */
+    justify-content: flex-end;
     align-items: center;
-    padding-right: 5px; /* Abstand zum rechten Rand */
+    padding-right: 5px;
     color: white;
     font-weight: bold;
 }
@@ -283,8 +283,8 @@
 }
 
 .evolution-image {
-    width: 90px;  /* Festgelegte Bildgröße */
-    height: 90px; /* Festgelegte Bildgröße */
+    width: 90px;
+    height: 90px;
     object-fit: contain;
 }
 
