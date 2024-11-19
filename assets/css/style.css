@@ -24,8 +24,8 @@
     flex-wrap: wrap;
     gap: 32px;
     color: white;
-    flex-grow: 1; /* Content nimmt den verbleibenden Raum ein */
-    overflow-y: auto; /* Wenn der Inhalt zu groß ist, wird er scrollen */
+    flex-grow: 1;
+    overflow-y: auto;
 }
 
 
@@ -56,9 +56,33 @@
 
 .pokemon_types {
     display: flex;
-    justify-content: space-around;
-    margin-top: 10px;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
 }
+
+.pokemon_button {
+    background-color: #114758;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.pokemon_types button:hover {
+    background-color: #0d3840;
+    transform: scale(1.1);
+}
+
+.pokemon_types p {
+    margin: 0;
+    font-size: 16px;
+    text-align: center;
+}
+
 
 .pokemon_types span {
     padding: 5px 10px;
@@ -138,7 +162,7 @@
 }
 
 #loadMoreButton {
-    background-color: #F7D02C; /* Gelbe Farbe */
+    background-color: #F7D02C;
     color: white;
     padding: 12px 24px;
     font-size: 18px;
@@ -153,7 +177,7 @@
 }
 
 #loadMoreButton:hover {
-    background-color: #F7B02C; /* Helleres Gelb beim Hover */
+    background-color: #F7B02C;
 }
 
 .selectedPokemon {
@@ -187,6 +211,7 @@
 
 .card_details_img img{
     width: 100%;
+    height: 300px;
 }
 
 .openCard{
@@ -255,6 +280,28 @@
     border-bottom: 3px solid #B65852;
 }
 
+.stat-table {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.stat-names {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 30%;
+    gap: 8px;
+}
+
+.stat-values {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    gap: 8px;
+}
+
 .stat-bar {
     width: 100%;
     background-color: #e0e0e0;
@@ -275,6 +322,8 @@
     color: white;
     font-weight: bold;
 }
+
+
 
 .evolution-image-container {
     display: inline-flex;

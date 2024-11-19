@@ -3,7 +3,6 @@ const limit = 30;
 let baseURL = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
 let currentPokemon = 0;
 
-
 function init() {
     loading();
     loadHeader();
@@ -74,6 +73,37 @@ function closeDetail() {
     detail.innerHTML = "";
 }
 
+function getStatsHTML(pokemon) {
+    const maxStatValue = 255;
+    const statNames = ["hp", "attack", "defense", "special-attack", "special-defense", "speed"];
+    let statsHTML = '<tr><td class="stat-table">';
+    statsHTML += getStatNamesHTML(statNames);
+    statsHTML += getStatValuesHTML(pokemon, statNames, maxStatValue);    
+    statsHTML += '</td></tr>';
+    return statsHTML;
+}
+
+function getStatValuesHTML(pokemon, statNames, maxStatValue) {
+    let statValuesHTML = '<div class="stat-values">';
+    for (let i = 0; i < statNames.length; i++) {
+        const statValue = pokemon.stats[i].base_stat;
+        const widthPercentage = Math.min((statValue / maxStatValue) * 100, 100);
+        statValuesHTML += getStatsValuesTemplate(widthPercentage, statValue);
+    }
+    statValuesHTML += '</div>';
+    return statValuesHTML;
+}
+
+function getStatNamesHTML(statNames) {
+    let statNamesHTML = '<div class="stat-names">';
+    for (let i = 0; i < statNames.length; i++) {
+        const statName = statNames[i];
+        statNamesHTML += `<div class="stat-name">${statName}</div>`;
+    }
+    statNamesHTML += '</div>';
+    return statNamesHTML;
+}
+
 function showSection(sectionId) {
     const sections = document.querySelectorAll('.section');
     sections.forEach(section => {
@@ -126,9 +156,36 @@ async function searchPokemons() {
     content.innerHTML = await Promise.all(filteredPokemons.map(pokemon => getPokemonHTML(pokemon)));
 }
 
+function slideLeft() {
+    if (currentPokemon > 1) {
+        currentPokemon--;
+    } else {
+        currentPokemon = 1010;
+    }
+    fetchAndRenderPokemonById(currentPokemon);
+}
 
+function slideRight() {
+    if (currentPokemon < 1010) {
+        currentPokemon++;
+    } else {
+        currentPokemon = 1;
+    }
+    fetchAndRenderPokemonById(currentPokemon);
+}
 
-
+async function fetchAndRenderPokemonById(pokemonId) {
+    try {
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}/`);
+        if (!response.ok) {
+            throw new Error(`Pokémon mit ID ${pokemonId} konnte nicht geladen werden`);
+        }
+        const pokemonData = await response.json();
+        renderDetailCard(pokemonData);
+    } catch (error) {
+        console.error("Fehler beim Laden des Pokémon:", error);
+    }
+}
 
 
 

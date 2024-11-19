@@ -34,7 +34,7 @@ function getPokemonTemplate(pokemon, typeColors) {
             <div class="pokemon_card_img" style="background-color: ${typeColors[pokemon.types[0].type.name]};">
                 <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
             </div>
-            <div class="pokemon_types">
+            <div class="pokemon_types j_center">
                 <span style="background-color: ${typeColors[pokemon.types[0].type.name]}">${pokemon.types[0].type.name}</span>
                 ${pokemon.types[1] ? `<span style="background-color: ${typeColors[pokemon.types[1].type.name]}">${pokemon.types[1].type.name}</span>` : ""}
             </div>
@@ -51,13 +51,15 @@ function getCardTemplate(pokemon, typeList, sprite, evoChainHTML) {
                     <div>
                         <div class="display">
                             <h2>#${pokemon.id} - ${pokemon.name}</h2>
-                            <button onclick="closeDetail()">X</button>
+                            <button onclick="closeDetail()" class="pokemon_button">&#x2715;</button>
                         </div>
                         <div class="card_details_img" style="background-color: ${getTypeColor(pokemon.types[0].type.name)};">
                             <img src="${sprite}" alt="${pokemon.name}">
                         </div>
-                        <div class="pokemon_types">
+                        <div class="pokemon_types j_space">
+                            <button onclick="slideLeft()" class="pokemon_button">&#8249;</button>
                             <p>${typeList}</p>
+                            <button onclick="slideRight()" class="pokemon_button">&#8250;</button>
                         </div>
                     </div>
                     <div>                     
@@ -78,52 +80,13 @@ function getCardTemplate(pokemon, typeList, sprite, evoChainHTML) {
                                     <td>${pokemon.height} m</td>
                                     <td>${pokemon.weight} kg</td>
                                     <td>${pokemon.base_experience}</td>
-                                    <td>${pokemon.abilities[0].ability.name},${pokemon.abilities[1].ability.name}</td>
+                                    <td>${pokemon.abilities[0].ability.name},${pokemon.abilities[1]?.ability.name || ""}</td>
                                 </tr>
                             </table>
                         </div>
                         <div id="stats" class="section hidden">
                             <table>
-                                <tr>
-                                    <td>hp</td>
-                                    <td>attack</td>
-                                    <td>defense</td>
-                                    <td>special-attack</td>
-                                    <td>special-defense</td>
-                                    <td>speed</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="stat-bar">
-                                            <div class="stat-bar-inner" style="width: ${pokemon.stats[0].base_stat}%;">${pokemon.stats[0].base_stat}</div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="stat-bar">
-                                            <div class="stat-bar-inner" style="width: ${pokemon.stats[1].base_stat}%;">${pokemon.stats[1].base_stat}</div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="stat-bar">
-                                            <div class="stat-bar-inner" style="width: ${pokemon.stats[2].base_stat}%;">${pokemon.stats[2].base_stat}</div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="stat-bar">
-                                            <div class="stat-bar-inner" style="width: ${pokemon.stats[3].base_stat}%;">${pokemon.stats[3].base_stat}</div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="stat-bar">
-                                            <div class="stat-bar-inner" style="width: ${pokemon.stats[4].base_stat}%;">${pokemon.stats[4].base_stat}</div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="stat-bar">
-                                            <div class="stat-bar-inner" style="width: ${pokemon.stats[5].base_stat}%;">${pokemon.stats[5].base_stat}</div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                ${getStatsHTML(pokemon)}
                             </table>
                         </div>
                         <div id="evoChain" class="section hidden">
@@ -136,3 +99,14 @@ function getCardTemplate(pokemon, typeList, sprite, evoChainHTML) {
     `;
 }
 
+function getStatsValuesTemplate(widthPercentage, statValue) {
+    return `
+            <div class="stat-value">
+                <div class="stat-bar">
+                    <div class="stat-bar-inner" style="width: ${widthPercentage}%;">
+                        ${statValue}
+                    </div>
+                </div>
+            </div>
+        `;
+}
