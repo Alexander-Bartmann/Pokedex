@@ -218,3 +218,4 @@ async function updateDetailCard(pokemonId) {
         renderDetailCard(pokemon);
     }
 }
+

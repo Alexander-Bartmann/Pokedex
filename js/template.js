@@ -57,7 +57,7 @@ function getCardTemplate(pokemon, typeList, sprite, evoChainHTML) {
                             <img src="${sprite}" alt="${pokemon.name}">
                         </div>
                         <div class="pokemon_types j_space">
-                            <button onclick=""slideLeft()"" class="pokemon_button">&#8249;</button>
+                            <button onclick="slideLeft()" class="pokemon_button">&#8249;</button>
                             <p>${typeList}</p>
                             <button onclick="slideRight()" class="pokemon_button">&#8250;</button>
                         </div>
