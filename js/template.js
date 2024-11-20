@@ -47,7 +47,7 @@ function getCardTemplate(pokemon, typeList, sprite, evoChainHTML) {
     return `
         <div class="selectedPokemon" onclick="closeDetail()" style="display: flex; gap: 16px; justify-content: space-around;">
             <div class="openCard">
-                <div class="card_details bg">
+                <div class="card_details bg" onclick="event.stopPropagation()">
                     <div class="media">
                         <div class="display headline_detail">
                             <h2>#${pokemon.id} - ${pokemon.name}</h2>
@@ -57,16 +57,16 @@ function getCardTemplate(pokemon, typeList, sprite, evoChainHTML) {
                             <img src="${sprite}" alt="${pokemon.name}">
                         </div>
                         <div class="pokemon_types j_space">
-                            <button onclick="slideLeft()" class="pokemon_button">&#8249;</button>
+                            <button onclick=""slideLeft()"" class="pokemon_button">&#8249;</button>
                             <p>${typeList}</p>
                             <button onclick="slideRight()" class="pokemon_button">&#8250;</button>
                         </div>
                     </div>
                     <div>                     
                         <div class="container_buttons">
-                            <button onclick="showSection('main'); event.stopPropagation();">Main</button>
-                            <button onclick="showSection('stats'); event.stopPropagation();">Stats</button>
-                            <button onclick="showSection('evoChain'); event.stopPropagation();">Evo Chain</button>
+                            <button onclick="showSection('main')">Main</button>
+                            <button onclick="showSection('stats')">Stats</button>
+                            <button onclick="showSection('evoChain')">Evo Chain</button>
                         </div>
                         <div id="main" class="section">
                             <table>

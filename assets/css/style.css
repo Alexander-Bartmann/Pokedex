@@ -208,6 +208,7 @@
     text-transform: capitalize;
     background-color: black;
     color: white;
+    z-index: 9999;
 }
 
 .card_details_img{
