@@ -4,7 +4,7 @@ Pokémon-Datenbank mit Anbindung an die [PokéAPI](https://pokeapi.co/). Übersi
 
 **Live:** [alexander-bartmann.de/Pokedex](https://alexander-bartmann.de/Pokedex/)
 
-![Pokedex Screenshot](./img/screenshot.png)
+![Pokedex Screenshot](./image.png)
 
 ---
 
