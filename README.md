@@ -2,7 +2,7 @@
 
 Pokémon-Datenbank mit Anbindung an die [PokéAPI](https://pokeapi.co/). Übersicht mit Nachladen, Detailansicht mit Werten und Entwicklungsreihe, Suche.
 
-**Live:** [join.alexander-bartmann.de](https://join.alexander-bartmann.de)
+**Live:** [pokedex.alexander-bartmann.de](https://pokedex.alexander-bartmann.de)
 
 ![Pokedex Screenshot](./image.png)
 
